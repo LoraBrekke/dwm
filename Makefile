@@ -43,13 +43,9 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	mkdir -p ${XSESSIONPREFIX}
-	cp -f dwm.desktop ${XSESSIONPREFIX}
-	cp -rf dwmdir ${HOME}/.dwm
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
-	rm -f ${XSESSIONPREFIX}/dwm.deskop
 
 .PHONY: all options clean dist install uninstall
