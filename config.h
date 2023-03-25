@@ -1,13 +1,17 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
-static const unsigned int baralpha = 0xd0;
+static const unsigned int baralpha = 0xA0;
 static const unsigned int borderalpha = OPAQUE;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int vertpad            = 8;       /* vertical padding of bar */
+static const int sidepad            = 5;       /* horizontal padding of bar */
+static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 9;        /* vertical padding for statusbar */
 static const char *fonts[]          = { "Hack:size=13" };
 static const char dmenufont[]       = "Hack:size=13";
 static const char col_gray1[]       = "#222222";
@@ -35,7 +39,6 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -72,7 +75,7 @@ static const char *screenshotcmd[]  = { "screenshot", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
  	{ MODKEY|ShiftMask,             XK_d, 	   spawn,          {.v = screenshotcmd } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
